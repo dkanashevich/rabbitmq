@@ -58,6 +58,7 @@ VOLUME /var/lib/rabbitmq
 RUN ln -sf /var/lib/rabbitmq/.erlang.cookie /root/
 
 RUN ln -sf /usr/lib/rabbitmq/lib/rabbitmq_server-$RABBITMQ_VERSION/plugins /plugins
+RUN rabbitmq-plugins enable rabbitmq_management
 
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
